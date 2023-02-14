@@ -48,14 +48,15 @@
 
 .description-box p {
     text-align: left;
+    display: inline;
 }
 
 .description-box img {
     width: 200px;
     height: 100px;
     border: 1px dashed white;
-    float: right;
     margin: 5px;
+    display: inline;
 }
 
 .description-box img:hover {
