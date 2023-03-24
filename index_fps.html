@@ -8,44 +8,8 @@
 
         <link rel="stylesheet" type="text/css" href="style.css">
         <script type="text/javascript" src="script.js"></script>
-
-        <style>
-            body {
-                font-family: Verdana, Geneva, Tahoma, sans-serif;
-                /* background-color: blueviolet; */
-                background-image: url("resources/bg.png");
-                background-repeat: repeat;
-            }
-
-            .centered {
-                text-align: center;
-            }
-
-            .white {
-                color: white;
-            }
-
-            .rounded {
-                border-radius: 10px;
-            }
-
-            .inlineFlex {
-                display: inline-flex;
-            }
-
-            .inline {
-                display: inline;
-            }
-
-            .active {
-                text-shadow: 1px 1px #ffffff;
-            }
-
-            .active::after {
-                float: right;
-                content: "|";
-            }
-        </style>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press Start 2P">
     </head>
 
     <body onload="onLoad()">
@@ -53,20 +17,203 @@
             <h1 class="centered white title">First Person Shooter Games</h1>
         </header>
 
-        <div class="inlineFlex">
-            <section class="rounded inline">
-                <ul style="list-style: none">
-                    <li class="navLink"><a href="index.html">Home</a></li>
-                    <li class="navLink active"><a href="index_fps.html">FPS</a></li>
-                    <li class="navLink"><a href="index_mmo.html">MMO</a></li>
-                    <li class="navLink"><a href="index_moba.html">MOBA</a></li>
-                    <li class="navLink"><a href="index_rts.html">RTS</a></li>
-                </ul>
-            </section>
+        <section class="rounded inline">
+            <ul class="navbar-row">
+                <li class="navLink"><a href="index.html">Home</a></li>
+                <li class="navLink active"><a href="index_fps.html">FPS</a></li>
+                <li class="navLink"><a href="index_mmo.html">MMO</a></li>
+                <li class="navLink"><a href="index_moba.html">MOBA</a></li>
+                <li class="navLink"><a href="index_rts.html">RTS</a></li>
+            </ul>
+        </section>
 
-            <section id="content" class="rounded inline" style="background-color: rgba(0, 0, 0, 0.7);">
+        <div class="inlineFlex">
+            <section class="rounded inline floating-box content">
+                <h2 class="videoHeading">Far Cry 1</h2>
+                <div class="videoCard">
+                    <iframe width="800" height="500" src="https://www.youtube.com/embed/NeyY5P35ARs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <p class="description-text">
+                    The game is set on a mysterious archipelago in Micronesia, where ex-special forces operative Jack Carver must use various weapons, tools, and his surroundings to survive against hostile mercenaries that control the islands while searching for the journalist who was accompanying him and who went missing.
+                </p>
+                <h2 class="videoHeading">Far Cry 2</h2>
+                <div class="videoCard">
+                    <iframe class="yvideo" width="800" height="500" src="https://www.youtube.com/embed/m-7m4vtn-eM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <p class="description-text">
+                    Set in a fictional Central African country engulfed in civil war, the storyline follows a mercenary who is assigned to kill the Jackal, a weapons dealer inflaming the conflict. The player navigates the open world, completing missions for factions and allies called Buddies while managing their health and equipment.
+                </p>
+            </section>
+            <section class="rounded inline">
+                <div class="sidebar">
+                    <h2>Updates on games</h2>
+                    <iframe width="300" height="200" src="https://www.youtube.com/embed/xej0Uzz0140" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <p>With the new year fast approaching and many new game releases on the horizon, it’s time to look ahead at some of the biggest upcoming games of 2023.  From Starfield coming to Xbox Series X|S and PC, to Spider-Man 2 releasing on PlayStation 5, and Legend of Zelda: Tears of the Kingdom coming to Nintendo Switch, there's LITERALLY something for everyone! So strap in and let's find out what's in store for us in 2023!</p>
+                </div>
             </section>
         </div>
+
+        <div id="app">
+            <div class="vue-container">
+                <h2>Comments</h2>
+                <span class="vue-single-comment">
+                    <div class="vue-row">
+                        <table class="vue-comment-table vue-centered">
+                            <tr>
+                                <th>User Name</th>
+                                <td><input type="text" v-model="userName" placeholder="John Doe"></td>
+                            </tr>
+                            <tr>
+                                <th>User Avatar</th>
+                                <td><input type="url" v-model="userAvatar" placeholder="Enter your avatar image url"></td>
+                            </tr>
+                            <tr>
+                                <th>Title</th>
+                                <td><input type="text" v-model="commentTitle" placeholder="This is my topic"></td>
+                            </tr>
+                            <tr>
+                                <th>Comment</th>
+                                <td><textarea v-model="commentBody">This is comment body</textarea></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: right" colspan="2">
+                                    <button @click="commentPost" class="vue-btn-post">POST</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </span>
+
+                <span class="vue-single-comment" v-for="(data, id) in dataSet">
+                    <div class="vue-row">
+                        <div class="vue-user-image vue-column">
+                            <div class="vue-cell">
+                                <img width="120" :src="data['userAvatar']">
+                            </div>
+                        </div>
+                        <div class="vue-column">
+                            <div class="vue-row">
+                                <div class="vue-cell">
+                                    <span class="vue-title">{{ data['title'] }}</span>
+                                </div>
+                            </div>
+                            <div class="vue-row">
+                                <div class="vue-cell">
+                                    <span class="vue-date-posted">{{ data['date'] }}</span>
+                                </div>
+                            </div>
+                            <div class="vue-row">
+                                <div class="vue-cell">
+                                    <span class="vue-comment-body">{{ data['body'] }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vue-row">
+                        <div class="vue-column">
+                            <div class="vue-cell">
+                                <span class="vue-user-name" :title="data['post']">{{ data['userName'] }}</span>
+                            </div>
+                        </div>
+                        <div class="vue-column vue-righted">
+                            <div class="vue-cell">
+                                <button class="vue-btn-vote" @click="voteup(id)" :disabled="data['updisable']"><i class="fa-solid fa-arrow-up"></i></button>
+                            </div>
+                            <span>&nbsp;{{ data['voteCount'] }}&nbsp;</span>
+                            <div class="vue-cell">
+                                <button class="vue-btn-vote" @click="votedown(id)" :disabled="data['downdisable']"><i class="fa-solid fa-arrow-down"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </span>
+            </div>
+        </div>
+
+        <script type="module">
+            import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js';
+
+            createApp({
+                data() {
+                    return {
+                        dataSet: [
+                            {
+                                title: "This is the title",
+                                userName: "User Name",
+                                post: 'Master in games',
+                                date: "2023-2-21",
+                                userAvatar: "https://gyo.gg/images/image.php?var=venue&varb=albanian-gaming-arena",
+                                voteCount: 10,
+                                updisable: false,
+                                downdisable: true,
+                                body: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)."
+                            },
+                            {
+                                title: "This is the title 2",
+                                userName: "User Name",
+                                post: 'Beginner in games',
+                                date: "2023-2-21",
+                                userAvatar: "https://gyo.gg/images/image.php?var=venue&varb=albanian-gaming-arena",
+                                voteCount: 10,
+                                updisable: false,
+                                downdisable: true,
+                                body: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)."
+                            },
+                        ],
+                        commentTitle: "",
+                        commentBody: "",
+                        userAvatar: "",
+                        userName: "",
+                    };
+                },
+                methods: {
+                    votedown(id) {
+                        let votes = this.dataSet[id]['voteCount'];
+                        votes--;
+                        this.dataSet[id]['voteCount'] = votes;
+                        this.dataSet[id]['downdisable'] = true;
+                        this.dataSet[id]['updisable'] = false;
+                    },
+                    voteup(id) {
+                        let votes = this.dataSet[id]['voteCount'];
+                        votes++;
+                        this.dataSet[id]['voteCount'] = votes;
+                        this.dataSet[id]['downdisable'] = false;
+                        this.dataSet[id]['updisable'] = true;
+                    },
+                    commentPost() {
+                        let date = new Date();
+                        if (this.commentTitle != "" && this.commentBody != "") {
+                            let userName = this.userName;
+                            let userAvatar = this.userAvatar;
+
+                            if (this.userAvatar == "") {
+                                userAvatar = "https://gyo.gg/images/image.php?var=venue&varb=albanian-gaming-arena";
+                            }
+
+                            if (this.userName == "") {
+                                userName = "Anonymous User";
+                            }
+                            
+                            let comment = {
+                                title: this.commentTitle,
+                                userName: userName,
+                                post: 'Begginer in games',
+                                date: `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`,
+                                userAvatar: userAvatar,
+                                voteCount: 0,
+                                updisable: false,
+                                downdisable: true,
+                                body: this.commentBody
+                            };
+
+                            this.dataSet = [...this.dataSet, comment];
+                        } else {
+                            alert("You cannot comment if you don't include title and comment body!");
+                        }
+                    }
+                }
+            }).mount("#app");
+        </script>
 
         <footer class="rounded centered" style="background: rgba(0, 0, 0, 0.7); padding: 10px; color: white">
             &copy; 2023. Damian Chamel
