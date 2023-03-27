@@ -216,8 +216,11 @@ body {
     color: black;
 }
 
-.vue-user-image {
+.vue-user-image-container {
     flex-grow: 0;
+}
+
+.vue-user-image {
     margin: 0 10px;
     outline: none;
     border-radius: 999px;
