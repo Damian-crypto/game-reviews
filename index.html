@@ -12,7 +12,7 @@
     </head>
 
     <body onload="onLoad()">
-        <header class="rounded" style="background: rgba(0, 0, 0, 0.7); padding: 10px">
+        <header class="rounded title-header">
             <h1 class="centered title">Game Collection - Home</h1>
         </header>
 
@@ -23,6 +23,8 @@
                 <li class="navLink"><a href="index_mmo.html">MMO</a></li>
                 <li class="navLink"><a href="index_moba.html">MOBA</a></li>
                 <li class="navLink"><a href="index_rts.html">RTS</a></li>
+                <li class="navLink"><a href="https://www.facebook.com" target="_blank"><i class="fa-brands fa-facebook"></i></a></li>
+                <li class="navLink"><a href="https://github.com/Damian-crypto" target="_blank"><i class="fa-brands fa-github"></i></a></li>
             </ul>
         </section>
 
@@ -49,7 +51,17 @@
                     <dl>
                         <dt><h2>Multiplayer Online Battle Arena - MOBA</h2></dt>
                         <dd>
+                            <img class="right" src="resources/moba.png" alt="multiplayer online battle arena">
                             <p><strong>A multiplayer online battle arena (MOBA) is a type of online video game that typically features two teams of players battling each other in an arena-style environment. Each player controls a single character, or "hero," with unique abilities, and works with their team to destroy the enemy team's base while defending their own. MOBAs are known for their strategic depth and require coordination and communication among team members to achieve victory.</strong></p>
+                        </dd>
+                    </dl>
+                </div>
+                <div class="description-box">
+                    <dl>
+                        <dt><h2>Real Time Strategy - RTS</h2></dt>
+                        <dd>
+                            <img class="left" src="resources/rts.png" alt="real time strategy games">
+                            <p><strong>Real-time strategy games (RTS) are a genre of video games where players control armies or factions in real-time, using a combination of resource management, base building, and tactical combat to achieve their objectives. Players typically start with a small base and must gather resources (such as minerals, food, or gold) to build structures and train units. They can then use these units to explore the game world, attack enemies, and defend their own base. In real-time strategy games, the action happens in real-time, which means that players must make quick decisions and respond rapidly to changing situations on the battlefield. Real-time strategy games can be played against the computer (in a single-player campaign or skirmish mode) or against other human players (in multiplayer matches).</strong></p>
                         </dd>
                     </dl>
                 </div>
@@ -155,26 +167,37 @@
                     return {
                         dataSet: [
                             {
-                                title: "This is the title",
-                                userName: "User Name",
+                                title: "Content on this website",
+                                userName: "Justin Gonzalez",
                                 post: 'Master in games',
-                                date: "2023-2-21",
-                                userAvatar: "https://gyo.gg/images/image.php?var=venue&varb=albanian-gaming-arena",
-                                voteCount: 10,
+                                date: "2023-1-20",
+                                userAvatar: "https://randomuser.me/api/portraits/men/74.jpg",
+                                voteCount: 106,
                                 updisable: false,
                                 downdisable: true,
-                                body: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)."
+                                body: "Wow, I'm blown away by the content on this website! The articles are well-written, informative, and engaging. I especially appreciate the depth of knowledge and expertise that is evident in each piece. It's clear that the authors have a passion for the subject matter and have done their research thoroughly. I've learned so much from reading these articles and I look forward to exploring more of the website in the future. Keep up the great work!",
                             },
                             {
-                                title: "This is the title 2",
-                                userName: "User Name",
+                                title: "Valueable website",
+                                userName: "Jerome Medina",
                                 post: 'Beginner in games',
-                                date: "2023-2-21",
-                                userAvatar: "https://img.freepik.com/premium-vector/head-cyborg-gamer-esport-logo_177315-330.jpg?w=2000",
-                                voteCount: 10,
+                                date: "2023-1-18",
+                                userAvatar: "https://randomuser.me/api/portraits/men/39.jpg",
+                                voteCount: 5,
                                 updisable: false,
                                 downdisable: true,
-                                body: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)."
+                                body: "I love coming to this game reviews website to get the latest scoop on new games and find out what's worth playing. The reviews are always honest, thorough, and informative, giving me a good sense of what to expect from a game before I buy it. I also appreciate the variety of games that are covered, from big budget blockbusters to indie gems. The site is easy to navigate and the reviews are well-organized, making it simple to find what I'm looking for. Keep up the great work, and thanks for helping me make informed decisions about what games to add to my collection!"
+                            },
+                            {
+                                title: "Good work",
+                                userName: "Adam Larson",
+                                post: 'Beginner in games',
+                                date: "2021-1-2",
+                                userAvatar: "https://randomuser.me/api/portraits/men/44.jpg",
+                                voteCount: 5,
+                                updisable: false,
+                                downdisable: true,
+                                body: "I just wanted to take a moment to express my appreciation for this website. The layout is clean and easy to navigate, and the content is always informative and engaging. I particularly enjoy the variety of topics covered, which always keeps things interesting. The site is always up to date with the latest information and news, and I appreciate the attention to detail in ensuring that all information presented is accurate and reliable. Overall, this website has become one of my go-to sources for information and entertainment, and I look forward to visiting it regularly. Keep up the great work!"
                             },
                         ],
 
@@ -213,7 +236,7 @@
                                 body: this.commentBody
                             };
 
-                            this.dataSet = [...this.dataSet, comment];
+                            this.dataSet = [comment, ...this.dataSet];
                         }
                     },
                 }

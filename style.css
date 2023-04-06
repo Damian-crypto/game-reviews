@@ -134,6 +134,8 @@ body {
 
 .title {
     color: white;
+    background-color: rgba(0, 0, 0, 0.719);
+    border-radius: 100px;
 }
 
 .title::before {
@@ -144,6 +146,18 @@ body {
 .title::after {
     color: gold;
     content: " >>";
+}
+
+.title-header {
+    padding: 10px;
+    background-repeat: space;
+    background-position: center;
+    background-size: cover;
+    background-image: url('https://wallpaperaccess.com/full/3143584.jpg');
+    background-color: rgba(80, 80, 80, 0.836);
+    background-blend-mode: multiply;
+    display: flex;
+    justify-content: center;
 }
 
 .navbar-row {
